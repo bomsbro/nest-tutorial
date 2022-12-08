@@ -1,17 +1,19 @@
 module.exports = {
+  root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
     sourceType: 'module',
+    ecmaVersion: 2019,
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
-  root: true,
   env: {
+    es6: true,
     node: true,
     jest: true,
   },
@@ -21,5 +23,15 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
   },
+  ignorePatterns: [
+    'build/**',
+    'dist/**',
+    'node_modules/',
+    'tsconfig.paths.json',
+    '.eslintrc.js',
+  ],
 };

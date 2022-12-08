@@ -2,7 +2,7 @@
   "name": "nest-typescript-starter",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "Nest TypeScript broadband coding",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
@@ -22,8 +22,13 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/serve-static": "3.0.0",
+    "@nestjs/typeorm": "9.0.1",
+    "ejs": "3.1.8",
+    "mysql2": "2.3.3",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.5"
+    "rxjs": "^7.5.5",
+    "typeorm": "0.3.11"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
