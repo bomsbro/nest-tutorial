@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ThumbNailModule } from './thumbnail/thumbnail.module';
+import { ThumbnailModule } from './thumbnail/thumbnail.module';
 
 @Module({
-  imports: [ThumbNailModule],
+  imports: [ThumbnailModule],
   controllers: [], // Controllers are imported from the modules
   providers: [], // Services are imported from the modules
 })

@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Thumbnail } from './models/entities/thumbnail.entity';
+import { ThumbnailRepository } from './thumbnail.repository';
 
 @Injectable()
-export class ThumbNailService {
+export class ThumbnailService {
+  constructor(
+    @InjectRepository(ThumbnailRepository)
+    private readonly thumbnailRepository: ThumbnailRepository,
+  ) {}
   /*Multiple items  */
-  getThumbNailList(): string {
-    return 'ThumbNail World!';
+  readThumbnailList(): Promise<Thumbnail[]> {
+    return this.thumbnailRepository.findAll();
   }
 
   /*Single item */
-  postThumbNail(): string {
-    return 'ThumbNail World!';
+  createThumbnail(req: {
+    name: string;
+    description: string;
+    url: string;
+    originalFileName: string;
+  }): Promise<Thumbnail> {
+    return this.thumbnailRepository.onCreate(req);
   }
 
-  getThumbNail(): string {
-    return 'ThumbNail World!';
+  readThumbnail(): string {
+    return 'Thumbnail World!';
   }
 
-  putThumbNail(): string {
-    return 'ThumbNail World!';
+  updateThumbnail(): string {
+    return 'Thumbnail World!';
   }
 
-  deleteThumbNail(): string {
-    return 'ThumbNail World!';
+  deleteThumbnail(): string {
+    return 'Thumbnail World!';
   }
 }

@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ThumbNailController } from './thumbnail.controller';
-import { ThumbNailService } from './thumbnail.service';
+import { ThumbnailController } from './thumbnail.controller';
+import { ThumbnailService } from './thumbnail.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Thumbnail } from './models/entities/thumbnail.entity';
+import { ThumbnailRepository } from './thumbnail.repository';
 
 @Module({
-  imports: [],
-  controllers: [ThumbNailController],
-  providers: [ThumbNailService],
+  imports: [TypeOrmModule.forFeature([Thumbnail])],
+  controllers: [ThumbnailController],
+  providers: [ThumbnailService, ThumbnailRepository],
 })
-export class ThumbNailModule {}
+export class ThumbnailModule {}
